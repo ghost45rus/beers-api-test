@@ -1,0 +1,236 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.container{
+        min-width: 960px;
+        max-width: 75%;
+        margin: 0 auto;
+        padding: 0;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.list_beers{
+    margin-top: 10px;
+    display: flex;
+    margin-right: -10px;
+    padding: 10px;
+    flex-wrap: wrap;
+    max-height: 735px;
+    overflow-y: scroll;
+}
+
+.list_beers__card{
+    padding: 5px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(20% - 10px);
+    margin-bottom: 10px;
+    /*height: 500px;*/
+    border: 1px solid black;
+    margin-right: 10px;
+}
+
+.list_beers__card__name{
+    white-space: pre-line;
+    width: 100%;
+    text-align: center;
+    display: block;
+    height: 50px;
+}
+
+.list_beers__card__img{
+    width: 50px;
+    height: 100px;
+}
+.list_beers__card__description, .list_beers__card__brewers_tips{
+    align-self: flex-start;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.3em;
+    height: 4.2em;
+    padding: 5px;
+    white-space: pre-line;
+}
+
+.paggination{
+    align-self: center;
+    margin-top: 10px;
+    display: flex;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-right: -5px;
+}
+.button{
+    margin-top: 5px;
+    align-self: center;
+    width: 75px;
+    margin-right: 5px;
+}
+.loader {
+    align-self: center;
+    margin-top: 40vh;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+.modal-wrapper {
+    position:fixed;
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.7);
+    z-index:100;
+}
+
+.overlay {
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
+
+.modal-wrapper_hide{
+    display: none;
+}
+
+.modal-window {
+
+    background: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: absolute;
+    top: 50vh;
+    transform: translate(0, -50%);
+    z-index:2;
+}
+.modal-window label{
+    margin-bottom: 10px;
+}
+
+.modal-window input[type=text], .modal-window textarea{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.modal-window textarea{
+    resize: none;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+
+
+
+

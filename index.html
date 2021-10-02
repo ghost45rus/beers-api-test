@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beers</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+            crossorigin="anonymous">
+    </script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="modal-wrapper modal-wrapper_hide">
+    <div class="modal-window">
+        <label for="beer_name">bear name</label>
+        <input type="text" id="beer_name">
+        <label for="beer_description">beer description</label>
+        <textarea cols="40" rows="10" id="beer_description"></textarea>
+        <input type="hidden" id="beer_id">
+        <input type="hidden" id="page">
+        <button type="button" onclick="applyForm()">apply</button>
+
+    </div>
+    <div class="overlay"></div>
+</div>
+    <div class="container">
+
+        <div class="wrapper">
+            <div class="loader"></div>
+            <div class="list_beers">
+            </div>
+            <div class="paggination">
+                <button  class="paggination__next" type="button" onclick="nextPage()">show next</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
