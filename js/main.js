@@ -1,21 +1,18 @@
 let pages = [];
 
-
-
 $(document).ready(function(){
 
-    $(document).mouseup(function (e){ // событие клика по веб-документу
-        let div = $(".modal-window"); // тут указываем ID элемента
-        if (!div.is(e.target) // если клик был не по нашему блоку
-            && div.has(e.target).length === 0) { // и не по его дочерним элементам
-            $(".modal-wrapper").addClass("modal-wrapper_hide"); // скрываем его
+    $(document).mouseup(function (e){
+        let div = $(".modal-window");
+        if (!div.is(e.target)
+            && div.has(e.target).length === 0) {
+            $(".modal-wrapper").addClass("modal-wrapper_hide");
             $("#beer_name").val("");
             $("#beer_description").val("");
             $("#beer_id").val("");
             $("#page").val("");
         }
     });
-
     $(".list_beers").hide();
     $(".paggination").hide();
     getBear(url, params).then((data) => {
@@ -29,7 +26,6 @@ $(document).ready(function(){
 
     })
 });
-console.log(pages)
 
 function drawList() {
     let list_beers = $(".list_beers");
@@ -63,8 +59,6 @@ function drawList() {
     })
 }
 
-
-
 function editForm(bear, page){
     $(".modal-wrapper").removeClass('modal-wrapper_hide')
     $("#beer_name").val(bear.name);
@@ -82,10 +76,9 @@ function applyForm(){
     $(".modal-wrapper").addClass("modal-wrapper_hide");
 }
 
-
 function deleteBeers(id, page){
     let findedPage = pages.find(item => item.page === page);
-    console.log(findedPage);
+
     findedPage.list = findedPage.list.filter((item) => item.id !== id);
     drawList();
 }
@@ -111,8 +104,5 @@ async function nextPage(){
                 $(".paggination").show();
             }
         }, 1500)
-
-
-        // console.log(pages);
     })
 }
