@@ -1,5 +1,5 @@
-let pages = new Array();
-let loaded = false;
+let pages = [];
+
 
 
 $(document).ready(function(){
